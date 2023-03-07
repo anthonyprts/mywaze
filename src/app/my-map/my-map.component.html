@@ -1,0 +1,50 @@
+<section class="card">
+    <div style="text-align:center">
+        <h1 class="display-6">
+            Bienvenue sur l'application de recherche d'itinéraire
+        </h1>
+
+    </div>
+
+    <div class="mb-3">
+        <form>
+            <div class="col-auto" style="margin: 5px">
+                <input type="text" class="form-control" placeholder="Tapez l'adresse de départ!" [(ngModel)]="AdresseDepartSaisie "
+                    [ngModelOptions]="{updateOn: 'blur'}" name="AdDprt">
+            </div>
+            
+            <div class="col-auto" style="margin: 5px">
+                <input type="text" class="form-control" placeholder="Tapez l'adresse d'arrivée !" [(ngModel)]="AdresseArriveSaisie" [ngModelOptions]="{updateOn: 'blur'}" name="AdArv">
+            </div>
+        </form>
+        
+
+        
+        <button class="btn btn-dark" type="button" (click)="onSearch()" style="margin: 5px">
+            Rechercher
+        </button>
+
+        <button *ngIf="resultatdepart && resultatarrivee" class="btn btn-dark" type="button" (click)="viewIntineraire()" style="margin: 5px">
+            Afficher l'itinéraire à partir de la recherche pour le point de départ
+        </button>
+
+        <button *ngIf="resultatdepart && resultatarrivee" class="btn btn-dark" type="button" (click)="viewIntineraireCurrentLocation()" style="margin: 5px">
+            Afficher l'itinéraire à partir de la localisation du navigateur
+        </button>
+
+        <button *ngIf="itineraire" class="btn btn-dark" type="button" (click)="deleteItineraire()" style="margin: 5px">
+            Effacer l'itinéraire
+        </button>
+        
+
+
+
+    </div>
+
+    
+        
+    <div id="map"></div>
+    
+    
+
+</section>
